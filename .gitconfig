@@ -1,3 +1,5 @@
 [user]
 	name = haruto2001
 	email = tarako5515@gmail.com
+[core]
+	pager = less -F -X

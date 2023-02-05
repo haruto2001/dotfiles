@@ -10,6 +10,20 @@ export LESS="-iRMXS"
 
 
 # --------------------
+#       パス
+# --------------------
+
+export PATH="$PATH:/bin:/usr/bin:/usr/local/bin"
+
+# Homebrew
+export PATH="$PATH:/opt/homebrew/bin"
+
+# 重複の削除
+typeset -U PATH
+
+
+
+# --------------------
 #       ヒストリ
 # --------------------
 
