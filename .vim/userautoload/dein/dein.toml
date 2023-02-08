@@ -1,0 +1,10 @@
+[[plugins]]
+# ディレクトリ構造をツリー表示
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nnoremap <silent><C-e> :NERDTreeToggle<CR>
+'''
+
+[[plugins]]
+# 対応する括弧を自動で追加・削除
+repo = 'jiangmiao/auto-pairs'
