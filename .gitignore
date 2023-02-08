@@ -1,0 +1,20 @@
+# いったん全ての階層のファイルを管理対象から外す
+### all ignore ###
+/*
+/.**
+
+# 管理対象のファイルを列挙
+### not ignore ###
+!/.zshrc
+!/.oh-my-zsh/
+!/.p10k.zsh
+!/.vimrc
+!/.vim/
+# /.vim/dein/の中身は管理不要
+/.vim/dein/**
+!/link.sh
+!/README.md
+
+!/.gigconfig
+!/.git/
+!.gitignore
