@@ -10,10 +10,11 @@ cd $DOTFILES_DIR
 
 # .から始まるファイルやフォルダに対して
 for f in .??*; do
-    # シンボリックリンクを作りたくないファイルやフォルダを除外
+    # シンボリックリンクを作りたくないファイルやディレクトリを除外
     [[ "$f" == ".git" ]] && continue
     [[ "$f" == ".gitignore" ]] && continue
     [[ "$f" == ".DS_Store" ]] && continue
+    [[ "$f" == ".vim" ]] && continue
 
     # シンボリックリンクを作成
     ln -snfv ${DOTFILES_DIR}/$f ~
