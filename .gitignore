@@ -11,8 +11,6 @@
 !/.vimrc
 !/.vim/
 !/.vim/**
-# /.vim/dein/の中身は管理不要
-/.vim/dein/**
 !/link.sh
 !/README.md
 !/.gigconfig
