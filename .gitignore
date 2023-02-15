@@ -6,7 +6,6 @@
 # 管理対象のファイルを列挙
 ### not ignore ###
 !/.zshrc
-!/.oh-my-zsh/
 !/.p10k.zsh
 !/.vimrc
 !/.vim/
