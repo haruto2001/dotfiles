@@ -32,6 +32,7 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     # os_icon               # os identifier
+    arch_type               # CUP architecture
     dir                     # current directory
     vcs                     # git status
     # =========================[ Line #2 ]=========================
@@ -141,7 +142,7 @@
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
 
   # Connect left prompt lines with these symbols.
-  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='🌏 %B%F{197}%n%f: %b'
+  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='🌏 %B%F{197}%n%f%b '
   typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX=
   typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=
   # Connect right prompt lines with these symbols.
@@ -180,6 +181,16 @@
     # End filler on the edge of the screen if there are no right segments on the first line.
     typeset -g POWERLEVEL9K_EMPTY_LINE_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='%{%}'
   fi
+
+  ###############################[ arch_type: UPU architecture ]###############################
+  # The function retrieves the result of the 'uname -m' command.
+  function prompt_arch_type() {
+    arch_type=`uname -m`
+    p10k segment -i '' -t "%B%F{220}(%f %F{226}${arch_type}%f %F{220})%f:%b"
+  }
+  # UPU architecture clor.
+  # typeset -g POWERLEVEL9K_ARCH_TYPE_FOREGROUND=
+  # typeset -g POWERLEVEL9K_ARCH_TYPE_BACKGROUND=
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
