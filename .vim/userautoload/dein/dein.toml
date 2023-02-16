@@ -1,9 +1,69 @@
+### ファイラ ###
+
 [[plugins]]
-# ディレクトリ構造をツリー表示
-repo = 'scrooloose/nerdtree'
+repo = 'lambdalisue/fern.vim'
 hook_add = '''
-  nnoremap <silent><C-e> :NERDTreeToggle<CR>
+  " Ctrl+eで左側にファイルツリーを表示
+  nnoremap <C-e> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+  " ファイルツリーにアイコンを表示
+  let g:fern#renderer = 'nerdfont'
 '''
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+hook_add = '''
+  augroup my-glyph-palette
+    autocmd! *
+    autocmd FileType fern call glyph_palette#apply()
+    autocmd FileType nerdtree,startify call glyph_palette#apply()
+  augroup END
+'''
+
+[[plugins]]
+repo = 'yuki-yano/fern-preview.vim'
+hook_add = '''
+  function! s:fern_settings() abort
+    nnoremap <silent> <buffer> p     <Plug>(fern-action-preview:toggle)
+    nnoremap <silent> <buffer> <C-p> <Plug>(fern-action-preview:auto:toggle)
+    nnoremap <silent> <buffer> <C-d> <Plug>(fern-action-preview:scroll:down:half)
+    nnoremap <silent> <buffer> <C-u> <Plug>(fern-action-preview:scroll:up:half)
+  endfunction
+  augroup fern-settings
+    autocmd!
+    autocmd FileType fern call s:fern_settings()
+  augroup END
+'''
+
+
+### ステータスバーのカスタマイズ ###
+
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = '''
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#buffer_idx_mode = 1
+  let g:airline#extensions#default#layout = [
+    \ ['a', 'b', 'c'],
+    \ ['x', 'y', 'error', 'warning']
+    \ ]
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+hook_add = '''
+  let g:airline_theme = 'dark'
+'''
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+
+### その他 ###
 
 [[plugins]]
 # 対応する括弧を自動で追加・削除
