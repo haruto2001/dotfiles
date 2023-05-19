@@ -68,3 +68,10 @@ repo = 'ryanoasis/vim-devicons'
 [[plugins]]
 # 対応する括弧を自動で追加・削除
 repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]
+# GitHub Copilot
+repo = 'github/copilot.vim'
+hook_add = '''
+  let b:copilot_enabled = 1
+'''

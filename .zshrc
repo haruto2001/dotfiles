@@ -18,6 +18,9 @@ export PATH="$PATH:/bin:/usr/bin:/usr/local/bin"
 # Homebrew
 export PATH="$PATH:/opt/homebrew/bin"
 
+# Nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
 # 重複の削除
 typeset -U PATH
 
