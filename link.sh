@@ -3,8 +3,8 @@
 # 未定義な変数があったら途中で終了する
 set -eu
 
-# dotfilesディレクトリのPathを取得
-DOTFILES_DIR=$(cd $(dirname $0); pwd)
+# dotfilesディレクトリのPath
+DOTFILES_DIR="$HOME/dotfiles"
 # dotfilesディレクトリに移動する
 cd $DOTFILES_DIR
 
