@@ -11,7 +11,9 @@
 !/.vimrc
 !/.vim/
 !/.vim/**
+!/install.sh
 !/link.sh
+!/setup.sh
 !/README.md
 !/.gigconfig
 !/.git/
