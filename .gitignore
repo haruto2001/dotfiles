@@ -5,6 +5,7 @@
 
 # 管理対象のファイルを列挙
 ### not ignore ###
+!/.zprofile
 !/.zshrc
 !/.p10k.zsh
 !/.vimrc
