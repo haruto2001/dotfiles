@@ -10,6 +10,11 @@ function install_OhMyZsh () {
   return 0
 }
 
+function install_tpm () {
+  local -r INSTALL_DIR="$1"
+  git clone https://github.com/tmux-plugins/tpm "$INSTALL_DIR"
+}
+
 function install_with_brew () {
   local _package=$1
 
@@ -39,8 +44,12 @@ else
   echo "Homebrew is already installed."
 fi
 
+# .zprofileの設定を反映させることでberwコマンドのpathを通す
+source $DOTFILES_DIR/.zprofile
+echo ".zprofile has been sourced."
+
 # Oh My Zshのインストール
-readonly OH_MY_ZSH_DIR="$DOTFILES_DIR/.oh-my-zsh"
+readonly OH_MY_ZSH_DIR="$DOTFILES_DIR/.oh-my-zsh"  # ここはDOTFILES_DIRの代わりにHOMEを使ったほうが良いかも
 if ! [ -d "$OH_MY_ZSH_DIR" ]; then
   echo "installing Oh My Zsh..."
   install_OhMyZsh
@@ -52,9 +61,25 @@ else
 fi
 
 # Vimのインストール
+# MacにはデフォルトでVimがインストールされているが，Homebrewで入れ直す
 readonly HOMEBREW_VIM_DIR="/opt/homebrew/bin/vim"
-if [ -x "$HOMEBREW_VIM_DIR" ]; then
-  echo "Vim with Homebrew is already installed."
-else
+if ! [ -x "$HOMEBREW_VIM_DIR" ]; then
   install_with_brew vim
+else
+  echo "Vim with Homebrew is already installed."
+fi
+
+#tmuxのインストール
+if ! command -v tmux >/dev/null 2>&1; then
+  install_with_brew tmux
+else
+  echo "tmux is already installed."
+fi
+
+# TPM（tmux plugin manager）のインストール
+readonly TPM_DIR="$DOTFILES_DIR/.tmux/plugins/tpm"
+if ! [[ -d "$TPM_DIR" ]]; then
+  install_tpm "$TPM_DIR"
+else
+  echo "tmux plugin manager (tpm) is already installed."
 fi
