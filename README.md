@@ -6,21 +6,23 @@
 
 ## Components
 
-- `vim`: It is a directory containing files that define vim settings. Plugin information is also located in this directory.
+- `.vim`: This is a directory containing files that define vim settings. Plugin information is also located in this directory.
 
-- `.p10k.zsh`: It is a [Powerlevel10k](https://github.com/romkatv/powerlevel10k) configuration file. It includes information on appearance, colors, prompt display items, Git information, directory display format, prompt style, etc.
+- `.p10k.zsh`: This is a [Powerlevel10k](https://github.com/romkatv/powerlevel10k) configuration file. This includes information on appearance, colors, prompt display items, Git information, directory display format, prompt style, etc.
 
-- `.vimrc`: It is used to load vim settings. Detailed settings are defined in various files in `vim` directory.
+- `.tmux.conf`: This is a file containing the tmux settings.
 
-- `.zprofile`: It is a file containing information required by the login shell. It is read only once at login.
+- `.vimrc`: This is used to load vim settings. Detailed settings are defined in various files in `vim` directory.
 
-- `.zshrc`: It is read in the case of the login shell or interactive shells.
+- `.zprofile`: This is a file containing information required by the login shell. This is read only once at login.
 
-- `install.sh`: It is a script for the installation of various tools.
+- `.zshrc`: This is read in the case of the login shell or interactive shells.
 
-- `link.sh`: It is a script to create symbolic links to the `$HOME` directory of various configuration files.
+- `install.sh`: This is a script for the installation of various tools.
 
-- `setup.sh`: It is a script to install tools and create symbolic links.
+- `link.sh`: This is a script to create symbolic links to the `$HOME` directory of various configuration files.
+
+- `setup.sh`: This is a script to install tools and create symbolic links.
 
 
 ## Installation
