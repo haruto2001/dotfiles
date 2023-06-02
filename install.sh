@@ -45,7 +45,7 @@ else
 fi
 
 # .zprofileの設定を反映させることでberwコマンドのpathを通す
-source $DOTFILES_DIR/.zprofile
+source $HOME/.zprofile
 echo ".zprofile has been sourced."
 
 # Oh My Zshのインストール
