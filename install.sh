@@ -18,7 +18,7 @@ function install_tpm () {
 function install_with_brew () {
   local _package=$1
 
-  if command -v brew >/dev/null 2>&1; then
+  if command -v /opt/homebrew/bin/brew >/dev/null 2>&1; then
     if brew list --formula | grep -q "^$_package\$"; then
       echo "$_package is already installed."
     else
@@ -43,14 +43,6 @@ if ! command -v brew >/dev/null 2>&1; then
 else
   echo "Homebrew is already installed."
 fi
-
-# brewコマンドのpathを通す
-echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> $DOTFILES_DIR/.zprofile
-eval $(/opt/homebrew/bin/brew shellenv)
-
-# .zprofileの設定を反映させる
-source $DOTFILES_DIR/.zprofile
-echo "$DOTFILES_DIR/.zprofile has been sourced."
 
 # Oh My Zshのインストール
 readonly OH_MY_ZSH_DIR="$DOTFILES_DIR/.oh-my-zsh"  # ここはDOTFILES_DIRの代わりにHOMEを使ったほうが良いかも
