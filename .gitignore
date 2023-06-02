@@ -19,3 +19,5 @@
 !/.gigconfig
 !/.git/
 !/.gitignore
+!/.github/
+!/.github/**
