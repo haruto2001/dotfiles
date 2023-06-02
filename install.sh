@@ -44,9 +44,13 @@ else
   echo "Homebrew is already installed."
 fi
 
-# .zprofileの設定を反映させることでberwコマンドのpathを通す
-source $HOME/.zprofile
-echo ".zprofile has been sourced."
+# brewコマンドのpathを通す
+echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> $DOTFILES_DIR/.zprofile
+eval $(/opt/homebrew/bin/brew shellenv)
+
+# .zprofileの設定を反映させる
+source $DOTFILES_DIR/.zprofile
+echo "$DOTFILES_DIR/.zprofile has been sourced."
 
 # Oh My Zshのインストール
 readonly OH_MY_ZSH_DIR="$DOTFILES_DIR/.oh-my-zsh"  # ここはDOTFILES_DIRの代わりにHOMEを使ったほうが良いかも
