@@ -32,3 +32,6 @@ inoremap <C-f> <Right>
 " 貼り付けたテキストの末尾へ自動的に移動
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
+
+" Escキーの代わりにjjでインサートモードを抜ける
+inoremap <silent> jj <ESC>
