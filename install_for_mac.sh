@@ -1,5 +1,7 @@
 #! /bin/zsh
 
+set -e
+
 function command_exists() {
   command -v "$@" >/dev/null 2>&1
 }
@@ -54,6 +56,14 @@ if ! command_exists brew; then
   echo "Homebrew installation is complete."
 else
   echo "Homebrew is already installed."
+fi
+
+# Homebrewがインストールされているかを確認
+if command_exists brew; then
+  echo "Homebrew is already installed."
+else
+  echo "Homebrew is not installed."
+  exit 1
 fi
 
 # Gitのインストール
