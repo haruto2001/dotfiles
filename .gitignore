@@ -13,6 +13,7 @@
 !/.vim/
 !/.vim/**
 !/install.sh
+!/install_for_ubuntu.sh
 !/link.sh
 !/setup.sh
 !/README.md
