@@ -30,7 +30,7 @@ function install_tpm() {
 function install_with_brew() {
   local _package=$1
 
-  if command -v /opt/homebrew/bin/brew >/dev/null 2>&1; then
+  if command_exists /opt/homebrew/bin/brew; then
     if brew list --formula | grep -q "^$_package\$"; then
       echo "$_package is already installed."
     else
@@ -69,7 +69,7 @@ else
 fi
 
 # Oh My Zshのインストール時に作成された~/.zshrcを削除
-if [[ -f "$HOME/.zshrc" ]]; then
+if [ -f "$HOME/.zshrc" ]; then
   echo "Removing existing ~/.zshrc..."
   rm "$HOME/.zshrc"
   echo "~/.zshrc removal is complete."
@@ -104,7 +104,9 @@ fi
 # TPM（tmux plugin manager）のインストール
 readonly TPM_DIR="$DOTFILES_DIR/.tmux/plugins/tpm"
 if ! directory_exists "$TPM_DIR"; then
+  echo "Installing tmux plugin manager (tpm)..."
   install_tpm "$TPM_DIR"
+  echo "tmux plugin manager (tpm) installation is complete."
 else
   echo "tmux plugin manager (tpm) is already installed."
 fi
