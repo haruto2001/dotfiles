@@ -14,6 +14,8 @@ jobs:
       # actionのバージョンを指定
       # TODO: 最適なバージョンを調べる
       - uses: actions/checkout@v2
+        with:
+          path: "$HOME"
 
       # Error Check
       - name: Run install_for_ubuntu.sh
