@@ -1,28 +1,28 @@
-#! /bin/bash
+#! /bin/zsh
 
-function command_exists() {
+command_exists() {
   command -v "$@" >/dev/null 2>&1
 }
 
-function directory_exists() {
+directory_exists() {
   [ -d "$1" ]
 }
 
-function install_apt() {
+install_apt() {
   sudo apt-get update
   sudo apt-get install -y apt
 }
 
-function install_OhMyZsh() {
+install_OhMyZsh() {
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   return 0
 }
 
-function install_powerlevel10k() {
+install_powerlevel10k() {
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$OH_MY_ZSH_DIR/custom/themes/powerlevel10k"
 }
 
-function install_tpm() {
+install_tpm() {
   local -r INSTALL_DIR="$1"
   git clone https://github.com/tmux-plugins/tpm "$INSTALL_DIR"
 }
