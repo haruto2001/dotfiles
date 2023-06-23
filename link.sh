@@ -15,6 +15,8 @@ for f in .??*; do
     [[ "$f" == ".git" ]] && continue
     [[ "$f" == ".gitignore" ]] && continue
     [[ "$f" == ".DS_Store" ]] && continue
+    [[ "$f" == ".oh-my-zsh" ]] && continue
+    [[ "$f" == ".p10k.zsh" ]] && continue
     [[ "$f" == ".vim" ]] && continue
 
     # シンボリックリンクを作成
