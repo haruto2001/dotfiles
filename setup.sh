@@ -5,7 +5,7 @@ echo "Start setup."
 # MacOSとUbuntuに対応
 if [ "$(uname)" == "Darwin" ]; then
     # MacOSの場合
-    . ./install.sh
+    . ./install_for_mac.sh
 elif [ -f /etc/os-release ] && grep -q "Ubuntu" /etc/os-release; then
     # Ubuntuの場合
     . ./install_for_ubuntu.sh
