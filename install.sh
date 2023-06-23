@@ -19,7 +19,7 @@ function install_OhMyZsh() {
 }
 
 function install_powerlevel10k() {
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$OH_MY_ZSH_DIR/themes/powerlevel10k"
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$OH_MY_ZSH_DIR/custom/themes/powerlevel10k"
 }
 
 function install_tpm() {
@@ -76,7 +76,7 @@ if [[ -f "$HOME/.zshrc" ]]; then
 fi
 
 # Powerlevel10kのインストール
-readonly POWERLEVEL10K_DIR="$OH_MY_ZSH_DIR/themes/powerlevel10k"
+readonly POWERLEVEL10K_DIR="$OH_MY_ZSH_DIR/custom/themes/powerlevel10k"
 if ! directory_exists "$POWERLEVEL10K_DIR"; then
   echo "Installing Powerlevel10k..."
   install_powerlevel10k
