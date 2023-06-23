@@ -1,5 +1,7 @@
 #! /bin/bash
 
+set -e
+
 command_exists() {
   command -v "$@" >/dev/null 2>&1
 }
@@ -37,6 +39,14 @@ if ! command_exists apt; then
   echo "apt installation is complete."
 else
   echo "apt is already installed."
+fi
+
+# aptがインストールされているかを確認
+if command_exists apt; then
+  echo "apt is already installed."
+else
+  echo "apt is not installed."
+  exit 1
 fi
 
 # Gitのインストール
