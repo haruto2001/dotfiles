@@ -1,4 +1,4 @@
-#! /bin/zsh
+#! /bin/bash
 
 command_exists() {
   command -v "$@" >/dev/null 2>&1
@@ -37,6 +37,15 @@ if ! command_exists apt; then
   echo "apt installation is complete."
 else
   echo "apt is already installed."
+fi
+
+# Gitのインストール
+if ! command_exists git; then
+  echo "Installing Git..."
+  sudo apt install -y git
+  echo "Git installation is complete."
+else
+  echo "Git is already installed."
 fi
 
 # Oh My Zshのインストール
@@ -80,7 +89,7 @@ fi
 #tmuxのインストール
 if ! command_exists tmux; then
   echo "Installing tmux..."
-  apt install -y tmux
+  sudo apt install -y tmux
   echo "tmux installation is complete."
 else
   echo "tmux is already installed."
