@@ -18,6 +18,6 @@ for f in .??*; do
     [[ "$f" == ".vim" ]] && continue
 
     # シンボリックリンクを作成
-    ln -snfv ${DOTFILES_DIR}/$f ~
+    ln -snfv ${DOTFILES_DIR}/$f $HOME
 done
 echo "Success!"
