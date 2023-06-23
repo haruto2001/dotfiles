@@ -56,6 +56,15 @@ else
   echo "Homebrew is already installed."
 fi
 
+# Gitのインストール
+# MacにはデフォルトでGitがインストールされているが，Homebrewで入れ直す
+readonly HOMEBREW_GIT_DIR="/opt/homebrew/bin/git"
+if ! [ -x "$HOMEBREW_GIT_DIR" ]; then
+  install_with_brew git
+else
+  echo "Git with Homebrew is already installed."
+fi
+
 # Oh My Zshのインストール
 readonly OH_MY_ZSH_DIR="$DOTFILES_DIR/.oh-my-zsh"  # ここはDOTFILES_DIRの代わりにHOMEを使ったほうが良いかも
 if ! directory_exists "$OH_MY_ZSH_DIR"; then
