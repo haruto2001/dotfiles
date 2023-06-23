@@ -82,8 +82,9 @@ if ! directory_exists "$OH_MY_ZSH_DIR"; then
   install_OhMyZsh
   echo "Oh My Zsh installation is complete."
   # $HOME/.oh-my-zsh -> $DOTFILES_DIR/.oh-my-zsh
-  mv $HOME/.oh-my-zsh $DOTFILES_DIR/.oh-my-zsh
   find $HOME -name .oh-my-zsh
+  find $HOME -name dotfiles
+  mv $HOME/.oh-my-zsh $DOTFILES_DIR/.oh-my-zsh
 else
   echo "Oh My Zsh is already installed."
 fi
