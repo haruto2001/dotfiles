@@ -14,7 +14,8 @@
 !/.vim/**
 !/install_for_mac.sh
 !/install_for_ubuntu.sh
-!/link.sh
+!/link_for_bash.sh
+!/link_for_zsh.sh
 !/setup.sh
 !/README.md
 !/.gigconfig
