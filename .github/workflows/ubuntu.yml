@@ -24,6 +24,9 @@ jobs:
       # TODO: 最適なバージョンを調べる
       - uses: actions/checkout@v2
 
+      - name: check bash
+        run: command -v bash
+
       # Error Check
       - name: Run install_for_ubuntu.sh (only install)
         run: . ${GITHUB_WORKSPACE}/install_for_ubuntu.sh
