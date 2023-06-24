@@ -31,7 +31,7 @@ install_tpm() {
 
 # GirHub Actions用の設定
 if [ "$CI" = "true" ]; then
-  HOME="Users/runner/work/dotfiles"
+  HOME="$HOME/work/dotfiles"
 fi
 
 # link.shでも使うためにreadonlyにしていない
