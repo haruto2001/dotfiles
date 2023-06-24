@@ -42,17 +42,29 @@ if ! command_exists apt; then
   echo "Installing apt..."
   install_apt
   echo "apt installation is complete."
+  # aptがインストールされているかを再確認してインストールされていなければエラーを出力して終了
+  if ! command_exists apt; then
+    echo "apt is not installed."
+    exit 1
+  fi
 else
   echo "apt is already installed."
 fi
 
-# aptがインストールされているかを確認
-if command_exists apt; then
-  echo "apt is already installed."
-else
-  echo "apt is not installed."
-  exit 1
+# zshのインストール
+if ! command_exists zsh; then
+  echo "Installing zsh..."
+  sudo apt install -y zsh
+  echo "zsh installation is complete."
+  # zshがインストールされているかを再確認してインストールされていなければエラーを出力して終了
+  if ! command_exists zsh; then
+    echo "zsh is not installed."
+    exit 1
+  fi
 fi
+
+# デフォルトシェルをzshに変更
+chsh -s $(which zsh)
 
 # Gitのインストール
 if ! command_exists git; then

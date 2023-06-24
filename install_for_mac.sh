@@ -50,13 +50,20 @@ function install_with_brew() {
 # GirHub Actions用の設定
 if [ $CI == "true" ]; then
   HOME="$HOME/work/dotfiles"
-  BREW_COMMAND="/usr/local/bin/brew"
-else
-  BREW_COMMAND="/opt/homebrew/bin/brew"
 fi
 
 # link.shでも使うためにreadonlyにしていない
 DOTFILES_DIR="$HOME/dotfiles"
+
+# システムアーキテクチャによってbrewコマンドのpathが異なる
+if [ $(uname -m) == "arm64" ]; then
+  BREW_COMMAND="/opt/homebrew/bin/brew"
+elif [ $(uname -m) == "x86_64" ]; then
+  BREW_COMMAND="/usr/local/bin/brew"
+else
+  "This system architecture is not supported."
+  exit 1
+fi
 
 # Homebrewのインストール
 if ! command_exists "$BREW_COMMAND"; then
