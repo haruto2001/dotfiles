@@ -1,4 +1,5 @@
 ![](https://github.com/haruto2001/dotfiles/workflows/macos/badge.svg)
+![](https://github.com/haruto2001/dotfiles/workflows/ubuntu/badge.svg)
 ![](https://img.shields.io/badge/author-haruto2001-success)
 ![](https://img.shields.io/github/languages/code-size/haruto2001/dotfiles?color=success)
 ![](https://img.shields.io/github/stars/haruto2001/dotfiles?color=success)
