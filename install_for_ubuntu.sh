@@ -51,20 +51,23 @@ else
   echo "apt is already installed."
 fi
 
-# zshのインストール
+# Zshのインストール
 if ! command_exists zsh; then
-  echo "Installing zsh..."
+  echo "Installing Zsh..."
   sudo apt install -y zsh
-  echo "zsh installation is complete."
+  echo "Zsh installation is complete."
   # zshがインストールされているかを再確認してインストールされていなければエラーを出力して終了
   if ! command_exists zsh; then
-    echo "zsh is not installed."
+    echo "Zsh is not installed."
     exit 1
   fi
 fi
 
 # デフォルトシェルをzshに変更
-chsh -s $(which zsh)
+if ! [ "$SHELL" == "$(command -v zsh)" ]; then
+  chsh -s $(which zsh)
+  echo "Default shell has been changed to Zsh."
+fi
 
 # Gitのインストール
 if ! command_exists git; then
