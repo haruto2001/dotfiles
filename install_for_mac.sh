@@ -47,11 +47,6 @@ function install_with_brew() {
   return 0
 }
 
-# GirHub Actions用の設定
-if [[ $CI == "true" ]]; then
-  HOME="$HOME/work/dotfiles"
-fi
-
 # link.shでも使うためにreadonlyにしていない
 DOTFILES_DIR="$HOME/dotfiles"
 
