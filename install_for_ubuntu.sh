@@ -1,6 +1,7 @@
 #! /bin/bash
 
-set -e
+# 未定義の変数があったら途中で終了する
+set -eu
 
 command_exists() {
   command -v "$@" >/dev/null 2>&1
