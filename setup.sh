@@ -2,6 +2,7 @@
 
 echo "Start setup."
 
+# 各種ツールのインストール
 # MacOSとUbuntuに対応
 if [ "$(uname)" == "Darwin" ]; then
   # MacOSの場合
@@ -16,6 +17,7 @@ else
 fi
 
 # シンボリックリンクの作成
+# シェルによって文字列比較の表記が異なるので別のファイルを使う
 if [ $SHELL == "$(command -v zsh)" ]; then
   . ./link_for_zsh
 elif [ $SHELL == "$(command -v bash)" ]; then
