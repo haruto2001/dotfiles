@@ -50,18 +50,21 @@ function install_with_brew() {
 # GirHub Actions用の設定
 if [ $CI == "true" ]; then
   HOME="$HOME/work/dotfiles"
+  BREW_COMMAND="/usr/local/bin/brew"
+else
+  BREW_COMMAND="/opt/homebrew/bin/brew"
 fi
 
 # link.shでも使うためにreadonlyにしていない
 DOTFILES_DIR="$HOME/dotfiles"
 
 # Homebrewのインストール
-if ! command_exists /opt/homebrew/bin/brew; then
+if ! command_exists "$BREW_COMMAND"; then
   echo "Installing Homebrew..."
   install_Homebrew
   echo "Homebrew installation is complete."
   # Homebrewがインストールされているかを再確認してインストールされていなければエラーを出力して終了
-  if ! command_exists /opt/homebrew/bin/brew; then
+  if ! command_exists "$BREW_COMMAND"; then
     echo "Homebrew is not installed."
     exit 1
   fi
