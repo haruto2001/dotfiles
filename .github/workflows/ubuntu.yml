@@ -10,6 +10,7 @@ on:
     paths:
       - "**.sh"
 env:
+  HOME: "//Users/runner/work/dotfiles"
   SHELL: "/bin/bash"
 
 jobs:
