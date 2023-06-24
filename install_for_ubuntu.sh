@@ -65,6 +65,9 @@ if ! [ "$SHELL" = "$(command -v zsh)" ]; then
   echo "Default shell has been changed to Zsh."
 fi
 
+# zshを起動
+exec zsh
+
 # Gitのインストール
 if ! command_exists git; then
   echo "Installing Git..."
