@@ -1,5 +1,6 @@
 #! /bin/bash
 
+# 未定義の変数があったら途中で終了する
 set -eu
 
 # dotfilesディレクトリのPath
