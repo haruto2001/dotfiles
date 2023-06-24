@@ -20,7 +20,7 @@ fi
 # シェルによって文字列比較の表記が異なるので別のファイルを使う
 if [ "$SHELL" = "$(command -v zsh)" ]; then
   . ./link_for_zsh.sh
-elif [ "$SHELL" = "$(command -v bash)" ]; then
+else
   . ./link_for_bash.sh
 fi
 
