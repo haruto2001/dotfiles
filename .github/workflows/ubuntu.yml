@@ -22,14 +22,11 @@ jobs:
       # TODO: 最適なバージョンを調べる
       - uses: actions/checkout@v2
 
-      - name: locate mkdir
-        run: which mkdir
-
       # Error Check
       - name: Run install_for_ubuntu.sh (only install)
         run: |
-          - chmod +x /bin/mkdir
-          - sh ${GITHUB_WORKSPACE}/install_for_ubuntu.sh
+          chmod +x /usr/bin/mkdir
+          sh ${GITHUB_WORKSPACE}/install_for_ubuntu.sh
         shell: bash
 
       - name: Run link_for_bash.sh (only link)
