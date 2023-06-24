@@ -30,7 +30,7 @@ install_tpm() {
 }
 
 # GirHub Actions用の設定
-if [ $CI == "true" ]; then
+if [ $CI = "true" ]; then
   HOME="$HOME/work/dotfiles"
 fi
 
@@ -64,8 +64,8 @@ if ! command_exists zsh; then
 fi
 
 # デフォルトシェルをzshに変更
-if ! [ "$SHELL" == "$(command -v zsh)" ]; then
-  chsh -s $(which zsh)
+if ! [ "$SHELL" = "$(command -v zsh)" ]; then
+  sudo chsh $USER -s $(which zsh)
   echo "Default shell has been changed to Zsh."
 fi
 
