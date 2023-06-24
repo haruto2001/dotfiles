@@ -4,7 +4,8 @@ on:
   push:
     branches: [ main ]
     paths:
-      - "**.sh"
+      - "install_for_mac.sh"
+      - "link_for_zsh.sh"
   pull_request:
     branches: [ main ]
     paths:

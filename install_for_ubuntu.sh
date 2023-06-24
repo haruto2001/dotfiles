@@ -1,6 +1,6 @@
 #! /bin/bash
 
-set -e
+set -eu
 
 command_exists() {
   command -v "$@" >/dev/null 2>&1
@@ -28,13 +28,6 @@ install_tpm() {
   local INSTALL_DIR="$1"
   git clone https://github.com/tmux-plugins/tpm "$INSTALL_DIR"
 }
-
-# GirHub Actions用の設定
-if [ "$CI" = "true" ]; then
-  HOME="/Users/runner/work/dotfiles"
-fi
-
-set -u
 
 # link.shでも使うためにreadonlyにしていない
 DOTFILES_DIR="$HOME/dotfiles"
