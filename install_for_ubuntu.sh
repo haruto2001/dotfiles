@@ -25,7 +25,7 @@ install_powerlevel10k() {
 }
 
 install_tpm() {
-  local -r INSTALL_DIR="$1"
+  local INSTALL_DIR="$1"
   git clone https://github.com/tmux-plugins/tpm "$INSTALL_DIR"
 }
 
@@ -110,7 +110,7 @@ fi
 # Vimのインストール
 if ! command_exists vim; then
   echo "Installing Vim..."
-  apt install -y vim
+  sudo apt install -y vim
   echo "Vim installation is complete."
 else
   echo "Vim is already installed."
