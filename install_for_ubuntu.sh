@@ -12,8 +12,8 @@ directory_exists() {
 }
 
 install_apt() {
-  apt-get update
-  apt-get install -y apt
+  sudo apt-get update
+  sudo apt-get install -y apt
 }
 
 install_OhMyZsh() {
@@ -50,7 +50,7 @@ fi
 # Zshのインストール
 if ! command_exists zsh; then
   echo "Installing Zsh..."
-  apt install -y zsh
+  sudo apt install -y zsh
   echo "Zsh installation is complete."
   # zshがインストールされているかを再確認してインストールされていなければエラーを出力して終了
   if ! command_exists zsh; then
@@ -68,7 +68,7 @@ fi
 # Gitのインストール
 if ! command_exists git; then
   echo "Installing Git..."
-  apt install -y git
+  sudo apt install -y git
   echo "Git installation is complete."
 else
   echo "Git is already installed."
@@ -106,7 +106,7 @@ fi
 # Vimのインストール
 if ! command_exists vim; then
   echo "Installing Vim..."
-  apt install -y vim
+  sudo apt install -y vim
   echo "Vim installation is complete."
 else
   echo "Vim is already installed."
@@ -115,7 +115,7 @@ fi
 #tmuxのインストール
 if ! command_exists tmux; then
   echo "Installing tmux..."
-  apt install -y tmux
+  sudo apt install -y tmux
   echo "tmux installation is complete."
 else
   echo "tmux is already installed."
