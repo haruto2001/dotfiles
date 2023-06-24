@@ -7,7 +7,7 @@ function command_exists() {
 }
 
 function directory_exists() {
-  [ -d "$1" ]
+  [[ -d "$1" ]]
 }
 
 function install_Homebrew() {
@@ -48,7 +48,7 @@ function install_with_brew() {
 }
 
 # GirHub Actions用の設定
-if [ $CI == "true" ]; then
+if [[ $CI == "true" ]]; then
   HOME="$HOME/work/dotfiles"
 fi
 
@@ -56,9 +56,9 @@ fi
 DOTFILES_DIR="$HOME/dotfiles"
 
 # システムアーキテクチャによってbrewコマンドのpathが異なる
-if [ $(uname -m) == "arm64" ]; then
+if [[ $(uname -m) == "arm64" ]]; then
   BREW_COMMAND="/opt/homebrew/bin/brew"
-elif [ $(uname -m) == "x86_64" ]; then
+elif [[ $(uname -m) == "x86_64" ]]; then
   BREW_COMMAND="/usr/local/bin/brew"
 else
   "This system architecture is not supported."
@@ -82,7 +82,7 @@ fi
 # Gitのインストール
 # MacにはデフォルトでGitがインストールされているが，Homebrewで入れ直す
 readonly HOMEBREW_GIT_DIR="/opt/homebrew/bin/git"
-if ! [ -x "$HOMEBREW_GIT_DIR" ]; then
+if ! [[ -x "$HOMEBREW_GIT_DIR" ]]; then
   install_with_brew git
 else
   echo "Git with Homebrew is already installed."
@@ -101,7 +101,7 @@ else
 fi
 
 # Oh My Zshのインストール時に作成された~/.zshrcを削除
-if [ -f "$HOME/.zshrc" ]; then
+if [[ -f "$HOME/.zshrc" ]]; then
   echo "Removing existing ~/.zshrc..."
   rm "$HOME/.zshrc"
   echo "~/.zshrc removal is complete."
@@ -120,7 +120,7 @@ fi
 # Vimのインストール
 # MacにはデフォルトでVimがインストールされているが，Homebrewで入れ直す
 readonly HOMEBREW_VIM_DIR="/opt/homebrew/bin/vim"
-if ! [ -x "$HOMEBREW_VIM_DIR" ]; then
+if ! [[ -x "$HOMEBREW_VIM_DIR" ]]; then
   install_with_brew vim
 else
   echo "Vim with Homebrew is already installed."
