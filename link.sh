@@ -8,6 +8,11 @@ if [ $CI = "true" ]; then
   HOME="$HOME/work/dotfiles"
 fi
 
+# Zshで実行
+if ! [ "$SHELL" = "$(command -v zsh)" ]; then
+  exec zsh
+fi
+
 # dotfilesディレクトリのPath
 DOTFILES_DIR="$HOME/dotfiles"
 # dotfilesディレクトリに移動する
