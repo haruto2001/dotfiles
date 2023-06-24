@@ -18,14 +18,21 @@
 
 - `.zshrc`: This is read in the case of the login shell or interactive shells.
 
-- `install.sh`: This is a script for the installation of various tools.
+- `install_for_mac.sh`: This is a script for the installation of various tools in MacOS.
 
-- `link.sh`: This is a script to create symbolic links to the `$HOME` directory of various configuration files.
+- `install_for_ubuntu.sh`: This is a script for the installation of various tools in Ubuntu.
+
+- `link_for_bash.sh`: This is a script to create symbolic links in Bash to the `$HOME` directory of various configuration files.
+
+- `link_for_zsh.sh`: This is a script to create symbolic links in Zsh to the `$HOME` directory of various configuration files.
 
 - `setup.sh`: This is a script to install tools and create symbolic links.
 
 
 ## Installation
+
+>**Note**
+>This is only for MacOS and Ubuntu Linux. Please note that using it on other OS or distributions may destroy the environment.
 
 Run this:
 
