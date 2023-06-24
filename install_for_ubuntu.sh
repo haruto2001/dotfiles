@@ -1,7 +1,6 @@
 #! /bin/bash
 
-# 未定義の変数があったら途中で終了する
-set -eu
+set -e
 
 command_exists() {
   command -v "$@" >/dev/null 2>&1
@@ -29,6 +28,13 @@ install_tpm() {
   local INSTALL_DIR="$1"
   git clone https://github.com/tmux-plugins/tpm "$INSTALL_DIR"
 }
+
+# GirHub Actions用の設定
+if [ $CI = "true" ]; then
+  HOME="$HOME/work/dotfiles"
+fi
+
+set -u
 
 # link.shでも使うためにreadonlyにしていない
 DOTFILES_DIR="$HOME/dotfiles"
@@ -60,10 +66,10 @@ if ! command_exists zsh; then
 fi
 
 # デフォルトシェルをzshに変更
-# if ! [ "$SHELL" = "$(command -v zsh)" ]; then
-#   sudo chsh $USER -s $(which zsh)
-#   echo "Default shell has been changed to Zsh."
-# fi
+if ! [ "$SHELL" = "$(command -v zsh)" ]; then
+  sudo chsh $USER -s $(which zsh)
+  echo "Default shell has been changed to Zsh."
+fi
 
 # Gitのインストール
 if ! command_exists git; then
@@ -78,7 +84,7 @@ fi
 readonly OH_MY_ZSH_DIR="$DOTFILES_DIR/.oh-my-zsh"  # ここはDOTFILES_DIRの代わりにHOMEを使ったほうが良いかも
 if ! directory_exists "$OH_MY_ZSH_DIR"; then
   echo "installing Oh My Zsh..."
-  install_OhMyZsh  # ここでエラー
+  install_OhMyZsh
   echo "Oh My Zsh installation is complete."
   # $HOME/.oh-my-zsh -> $DOTFILES_DIR/.oh-my-zsh
   mv $HOME/.oh-my-zsh $DOTFILES_DIR/.oh-my-zsh
