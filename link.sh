@@ -8,16 +8,6 @@ if [ $CI = "true" ]; then
   HOME="$HOME/work/dotfiles"
 fi
 
-# Zshに変更
-if [ -z "$SHELL" ] || ! [ "$SHELL" = "$(command -v zsh)" ]; then
-  if command -v zsh >/dev/null 2>&1; then
-    exec zsh
-  else
-    echo "Zsh is not installed."
-    exit 1
-  fi
-fi
-
 # dotfilesディレクトリのPath
 DOTFILES_DIR="$HOME/dotfiles"
 # dotfilesディレクトリに移動する
