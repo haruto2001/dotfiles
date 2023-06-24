@@ -20,9 +20,6 @@ jobs:
         run: sh ${GITHUB_WORKSPACE}/install_for_ubuntu.sh
         shell: bash
 
-      - name: Run link.sh
-        run: |
-          sudo apt install -y zsh
-          sudo chsh $USER -s $(which zsh)
-          sh ${GITHUB_WORKSPACE}/link.sh
+      - name: Run link_for_bash.sh
+        run: sh ${GITHUB_WORKSPACE}/link_for_bash.sh
         shell: bash

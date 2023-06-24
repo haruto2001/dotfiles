@@ -20,6 +20,6 @@ jobs:
         run: sh $GITHUB_WORKSPACE/install_for_mac.sh
         shell: zsh {0}
 
-      - name: Run link.sh
-        run: sh $GITHUB_WORKSPACE/link.sh
+      - name: Run link_for_zsh.sh
+        run: sh $GITHUB_WORKSPACE/link_for_zsh.sh
         shell: zsh {0}
