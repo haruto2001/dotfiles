@@ -19,7 +19,7 @@ fi
 # シンボリックリンクの作成
 # シェルによって文字列比較の表記が異なるので別のファイルを使う
 if [ $SHELL == "$(command -v zsh)" ]; then
-  . ./link_for_zsh
+  . ./link_for_zsh.sh
 elif [ $SHELL == "$(command -v bash)" ]; then
   . ./link_for_bash.sh
 else
