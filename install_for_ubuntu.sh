@@ -78,7 +78,7 @@ fi
 readonly OH_MY_ZSH_DIR="$DOTFILES_DIR/.oh-my-zsh"  # ここはDOTFILES_DIRの代わりにHOMEを使ったほうが良いかも
 if ! directory_exists "$OH_MY_ZSH_DIR"; then
   echo "installing Oh My Zsh..."
-  install_OhMyZsh  # ここでエラー
+  install_OhMyZsh
   echo "Oh My Zsh installation is complete."
   # $HOME/.oh-my-zsh -> $DOTFILES_DIR/.oh-my-zsh
   mv $HOME/.oh-my-zsh $DOTFILES_DIR/.oh-my-zsh
