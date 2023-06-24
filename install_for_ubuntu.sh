@@ -30,7 +30,7 @@ install_tpm() {
 }
 
 # GirHub Actions用の設定
-if [ $CI = "true" ]; then
+if [ "$CI" = "true" ]; then
   HOME="Users/runner/work/dotfiles"
 fi
 
@@ -85,7 +85,7 @@ if ! directory_exists "$OH_MY_ZSH_DIR"; then
   install_OhMyZsh
   echo "Oh My Zsh installation is complete."
   # $HOME/.oh-my-zsh -> $DOTFILES_DIR/.oh-my-zsh
-  mv $HOME/.oh-my-zsh $DOTFILES_DIR/.oh-my-zsh
+  mv "$HOME/.oh-my-zsh" "$DOTFILES_DIR/.oh-my-zsh"
 else
   echo "Oh My Zsh is already installed."
 fi
