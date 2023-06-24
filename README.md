@@ -1,8 +1,6 @@
 [![MacOS](https://github.com/haruto2001/dotfiles/actions/workflows/macos.yml/badge.svg)](https://github.com/haruto2001/dotfiles/actions/workflows/macos.yml)
 [![Ubuntu](https://github.com/haruto2001/dotfiles/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/haruto2001/dotfiles/actions/workflows/ubuntu.yml)
-![](https://img.shields.io/badge/author-haruto2001-success)
 ![](https://img.shields.io/github/languages/code-size/haruto2001/dotfiles?color=success)
-![](https://img.shields.io/github/stars/haruto2001/dotfiles?color=success)
 # My dotfiles
 
 
