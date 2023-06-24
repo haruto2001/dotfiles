@@ -1,12 +1,15 @@
 #! /bin/bash
 
-# 未定義な変数があったら途中で終了する
-set -eu
+# ローカルではCIが存在しない場合があるのでset -uはここでは実行しない
+set -e
 
 # GirHub Actions用の設定
 if [ $CI = "true" ]; then
   HOME="$HOME/work/dotfiles"
 fi
+
+# 未定義な変数があったら途中で終了する
+set -u
 
 # dotfilesディレクトリのPath
 DOTFILES_DIR="$HOME/dotfiles"
