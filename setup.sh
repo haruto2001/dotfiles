@@ -22,9 +22,6 @@ if [ "$SHELL" = "$(command -v zsh)" ]; then
   . ./link_for_zsh.sh
 elif [ "$SHELL" = "$(command -v bash)" ]; then
   . ./link_for_bash.sh
-else
-  echo "This shell is not supported."
-  exit 1
 fi
 
 echo "Setup is complete."
