@@ -11,7 +11,7 @@ on:
       - "**.sh"
 env:
   HOME: "/Users/runner/work/dotfiles"
-  SHELL: "/usr/bin/bash"
+  SHELL: "/bin/bash"
 
 jobs:
   ubuntu-test:
@@ -24,13 +24,13 @@ jobs:
 
       # Error Check
       - name: Run install_for_ubuntu.sh (only install)
-        run: sh ${GITHUB_WORKSPACE}/install_for_ubuntu.sh
+        run: . ${GITHUB_WORKSPACE}/install_for_ubuntu.sh
         shell: bash
 
       - name: Run link_for_bash.sh (only link)
-        run: sh ${GITHUB_WORKSPACE}/link_for_bash.sh
+        run: . ${GITHUB_WORKSPACE}/link_for_bash.sh
         shell: bash
 
       - name: Run setup.sh (install and link)
-        run: sh ${GITHUB_WORKSPACE}/setup.sh
+        run: . ${GITHUB_WORKSPACE}/setup.sh
         shell: bash
