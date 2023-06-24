@@ -8,7 +8,8 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - "**.sh"
+      - "install_for_ubuntu.sh"
+      - "link_for_bash.sh"
 env:
   HOME: "/Users/runner/work/dotfiles"
   SHELL: "/bin/bash"

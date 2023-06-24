@@ -8,7 +8,8 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - "**.sh"
+      - "install_for_mac.sh"
+      - "link_for_zsh.sh"
 env:
   HOME: "/Users/runner/work/dotfiles"
   SHELL: "/bin/zsh"
@@ -24,13 +25,13 @@ jobs:
 
       # Error Check
       - name: Run install_for_mac.sh (only install)
-        run: sh $GITHUB_WORKSPACE/install_for_mac.sh
+        run: . $GITHUB_WORKSPACE/install_for_mac.sh
         shell: zsh {0}
 
       - name: Run link_for_zsh.sh (only link)
-        run: sh $GITHUB_WORKSPACE/link_for_zsh.sh
+        run: . $GITHUB_WORKSPACE/link_for_zsh.sh
         shell: zsh {0}
 
       - name: Run setup.sh (install and link)
-        run: sh $GITHUB_WORKSPACE/setup.sh
+        run: . $GITHUB_WORKSPACE/setup.sh
         shell: zsh {0}
