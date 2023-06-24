@@ -42,6 +42,7 @@ function install_with_brew() {
     fi
   else
     echo "Homebrew is not installed. Install Homebrew first."
+    exit 1
   fi
   return 0
 }
@@ -55,20 +56,17 @@ fi
 DOTFILES_DIR="$HOME/dotfiles"
 
 # Homebrewのインストール
-if ! command_exists brew; then
+if ! command_exists /opt/homebrew/bin/brew; then
   echo "Installing Homebrew..."
   install_homebrew
   echo "Homebrew installation is complete."
+  # Homebrewがインストールされているかを再確認してインストールされていなければエラーを出力して終了
+  if ! command_exists /opt/homebrew/bin/brew; then
+    echo "Homebrew is not installed."
+    exit 1
+  fi
 else
   echo "Homebrew is already installed."
-fi
-
-# Homebrewがインストールされているかを確認
-if command_exists brew; then
-  echo "Homebrew is already installed."
-else
-  echo "Homebrew is not installed."
-  exit 1
 fi
 
 # Gitのインストール
@@ -87,8 +85,6 @@ if ! directory_exists "$OH_MY_ZSH_DIR"; then
   install_OhMyZsh
   echo "Oh My Zsh installation is complete."
   # $HOME/.oh-my-zsh -> $DOTFILES_DIR/.oh-my-zsh
-  find $HOME -name .oh-my-zsh
-  find $HOME -name dotfiles
   mv $HOME/.oh-my-zsh $DOTFILES_DIR/.oh-my-zsh
 else
   echo "Oh My Zsh is already installed."
