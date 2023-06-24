@@ -6,11 +6,10 @@ on:
     paths:
       - "install_for_ubuntu.sh"
       - "link_for_bash.sh"
+      - "setup.sh"
   pull_request:
     branches: [ main ]
-    paths:
-      - "install_for_ubuntu.sh"
-      - "link_for_bash.sh"
+
 env:
   HOME: "/home/runner/work/dotfiles"
   SHELL: "/bin/bash"
