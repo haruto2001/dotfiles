@@ -14,6 +14,8 @@ set -u
 # dotfilesディレクトリのPath
 DOTFILES_DIR="$HOME/dotfiles"
 # dotfilesディレクトリに移動する
+echo "$HOME"
+echo "$DOTFILES_DIR"
 cd "$DOTFILES_DIR"
 
 echo "Creating symbolic links ..."
