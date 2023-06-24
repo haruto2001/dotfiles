@@ -1,12 +1,5 @@
 #! /bin/zsh
 
-set -e
-
-# GirHub Actions用の設定
-if [[ $CI == "true" ]]; then
-  HOME="$HOME/work/dotfiles"
-fi
-
 echo "Start setup."
 
 # 各種ツールのインストール
@@ -25,9 +18,9 @@ fi
 
 # シンボリックリンクの作成
 # シェルによって文字列比較の表記が異なるので別のファイルを使う
-if [ $SHELL = "$(command -v zsh)" ]; then
+if [ "$SHELL" = "$(command -v zsh)" ]; then
   . ./link_for_zsh.sh
-elif [ $SHELL = "$(command -v bash)" ]; then
+elif [ "$SHELL" = "$(command -v bash)" ]; then
   . ./link_for_bash.sh
 else
   echo "This shell is not supported."
