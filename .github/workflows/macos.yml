@@ -22,6 +22,9 @@ jobs:
       # TODO: 最適なバージョンを調べる
       - uses: actions/checkout@v2
 
+      - name: locate mkdir
+        run: which mkdir
+
       # Error Check
       - name: Run install_for_mac.sh (only install)
         run: sh $GITHUB_WORKSPACE/install_for_mac.sh
