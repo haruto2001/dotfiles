@@ -18,8 +18,11 @@ jobs:
       # Error Check
       - name: Run install_for_ubuntu.sh
         run: sh ${GITHUB_WORKSPACE}/install_for_ubuntu.sh
-        shell: zsh {0}
+        shell: bash
 
       - name: Run link.sh
-        run: sh ${GITHUB_WORKSPACE}/link.sh
-        shell: zsh {0}
+        run: |
+          sudo apt install -y zsh
+          sudo chsh $USER -s $(which zsh)
+          sh ${GITHUB_WORKSPACE}/link.sh
+        shell: bash
