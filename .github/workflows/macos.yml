@@ -8,7 +8,7 @@ on:
 
 jobs:
   macos-test:
-    runs-on: m1max
+    runs-on: macos-latest  # これはIntel Macの環境 (M1 Mac対応待ち)
 
     steps:
       # actionのバージョンを指定
