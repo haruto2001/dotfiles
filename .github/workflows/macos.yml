@@ -3,8 +3,12 @@ name: macos
 on:
   push:
     branches: [ main ]
+    paths:
+      - "**.sh"
   pull_request:
     branches: [ main ]
+    paths:
+      - "**.sh"
 
 jobs:
   macos-test:
@@ -16,10 +20,14 @@ jobs:
       - uses: actions/checkout@v2
 
       # Error Check
-      - name: Run install_for_mac.sh
+      - name: Run install_for_mac.sh (only install)
         run: sh $GITHUB_WORKSPACE/install_for_mac.sh
         shell: zsh {0}
 
-      - name: Run link_for_zsh.sh
+      - name: Run link_for_zsh.sh (only link)
         run: sh $GITHUB_WORKSPACE/link_for_zsh.sh
+        shell: zsh {0}
+
+      - name: Run setup.sh (install and link)
+        run: sh $GITHUB_WORKSPACE/setup.sh
         shell: zsh {0}
