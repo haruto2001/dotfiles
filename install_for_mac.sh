@@ -46,7 +46,6 @@ function install_with_brew() {
   return 0
 }
 
-echo $HOME
 # link.shでも使うためにreadonlyにしていない
 DOTFILES_DIR="$HOME/dotfiles"
 
