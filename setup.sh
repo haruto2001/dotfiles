@@ -20,8 +20,11 @@ fi
 # シェルによって文字列比較の表記が異なるので別のファイルを使う
 if [ "$SHELL" = "$(command -v zsh)" ]; then
   . ./link_for_zsh.sh
-else
+elif [ "$SHELL" = "$(command -v bash)" ]; then
   . ./link_for_bash.sh
+else
+  echo "This shell is not supported."
+  exit 1
 fi
 
 echo "Setup is complete."
