@@ -8,7 +8,7 @@ on:
 
 jobs:
   macos-test:
-    runs-on: macos-latest
+    runs-on: m1max
 
     steps:
       # actionのバージョンを指定
