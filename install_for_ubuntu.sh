@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # 未定義の変数があったら途中で終了する
-set -e
+set -eu
 
 command_exists() {
   command -v "$@" >/dev/null 2>&1
@@ -60,10 +60,10 @@ if ! command_exists zsh; then
 fi
 
 # デフォルトシェルをzshに変更
-if ! [ "$SHELL" = "$(command -v zsh)" ]; then
-  sudo chsh $USER -s $(which zsh)
-  echo "Default shell has been changed to Zsh."
-fi
+# if ! [ "$SHELL" = "$(command -v zsh)" ]; then
+#   sudo chsh $USER -s $(which zsh)
+#   echo "Default shell has been changed to Zsh."
+# fi
 
 # Gitのインストール
 if ! command_exists git; then
