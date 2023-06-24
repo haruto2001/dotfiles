@@ -58,7 +58,7 @@ DOTFILES_DIR="$HOME/dotfiles"
 # Homebrewのインストール
 if ! command_exists /opt/homebrew/bin/brew; then
   echo "Installing Homebrew..."
-  install_homebrew
+  install_Homebrew
   echo "Homebrew installation is complete."
   # Homebrewがインストールされているかを再確認してインストールされていなければエラーを出力して終了
   if ! command_exists /opt/homebrew/bin/brew; then
