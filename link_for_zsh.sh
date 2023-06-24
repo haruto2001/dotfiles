@@ -4,7 +4,7 @@
 set -e
 
 # GirHub Actions用の設定
-if [[ $CI == "true" ]]; then
+if [[ "$CI" == "true" ]]; then
   HOME="$HOME/work/dotfiles"
 fi
 
@@ -14,7 +14,7 @@ set -u
 # dotfilesディレクトリのPath
 DOTFILES_DIR="$HOME/dotfiles"
 # dotfilesディレクトリに移動する
-cd $DOTFILES_DIR
+cd "$DOTFILES_DIR"
 
 echo "Creating symbolic links ..."
 # .から始まるファイルやフォルダに対して
