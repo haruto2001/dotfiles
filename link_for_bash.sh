@@ -1,7 +1,13 @@
 #! /bin/bash
 
+set -e
+
+if [ "$CI" = "true" ]; then
+  HOME="/Users/runner/work/dotfiles"
+fi
+
 # 未定義の変数があったら途中で終了する
-set -eu
+set -u
 
 # dotfilesディレクトリのPath
 DOTFILES_DIR="$HOME/dotfiles"
