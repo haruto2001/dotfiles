@@ -25,7 +25,7 @@ jobs:
       # Error Check
       - name: Run install_for_ubuntu.sh (only install)
         run: |
-          chmod +x /usr/bin/mkdir
+          sudo chmod +x /usr/bin/mkdir
           sh ${GITHUB_WORKSPACE}/install_for_ubuntu.sh
         shell: bash
 
