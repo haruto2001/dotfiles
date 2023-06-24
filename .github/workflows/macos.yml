@@ -9,6 +9,8 @@ on:
     branches: [ main ]
     paths:
       - "**.sh"
+env:
+  SHELL: "/bin/zsh"
 
 jobs:
   macos-test:
