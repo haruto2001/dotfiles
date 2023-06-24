@@ -32,12 +32,12 @@ function install_tpm() {
 function install_with_brew() {
   local _package=$1
 
-  if command_exists /opt/homebrew/bin/brew; then
+  if command_exists "$BREW_COMMAND"; then
     if brew list --formula | grep -q "^$_package\$"; then
       echo "$_package is already installed."
     else
       echo "Installing $_package..."
-      brew install "$_package"
+      "$BREW_COMMAND" install "$_package"
       echo "$_package installation is complete."
     fi
   else
