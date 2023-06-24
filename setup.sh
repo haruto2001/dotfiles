@@ -1,10 +1,17 @@
-#! /usr/bin/zsh
+#! /bin/zsh
+
+set -e
+
+# GirHub Actions用の設定
+if [[ $CI == "true" ]]; then
+  HOME="$HOME/work/dotfiles"
+fi
 
 echo "Start setup."
 
 # 各種ツールのインストール
 # MacOSとUbuntuに対応
-if [ "$(uname)" == "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
   # MacOSの場合
   . ./install_for_mac.sh
 elif [ -f /etc/os-release ] && grep -q "Ubuntu" /etc/os-release; then
