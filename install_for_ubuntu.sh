@@ -30,7 +30,7 @@ install_tpm() {
 }
 
 # GirHub Actions用の設定
-if [ $CI = "true" ]; then
+if [ "$CI" = "true" ]; then
   HOME="/Users/runner/work/dotfiles"
 fi
 
