@@ -32,6 +32,7 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     # os_icon               # os identifier
+    username                # username for git or system
     arch_type               # CUP architecture
     dir                     # current directory
     vcs                     # git status
@@ -142,7 +143,7 @@
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
 
   # Connect left prompt lines with these symbols.
-  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='🌏 %B%F{197}%n%f%b '
+  typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='🌏 %B%F{197}${username}%f%b '
   typeset -g POWERLEVEL9K_MULTILINE_NEWLINE_PROMPT_PREFIX=
   typeset -g POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=
   # Connect right prompt lines with these symbols.
@@ -183,7 +184,7 @@
   fi
 
   ###############################[ arch_type: UPU architecture ]###############################
-  # The function retrieves the result of the 'uname -m' command.
+  # This function retrieves the result of the 'uname -m' command.
   function prompt_arch_type() {
     arch_type=`uname -m`
     p10k segment -i '' -t "%B%F{220}(%f %F{226}${arch_type}%f %F{220})%f:%b"
@@ -191,6 +192,16 @@
   # UPU architecture clor.
   # typeset -g POWERLEVEL9K_ARCH_TYPE_FOREGROUND=
   # typeset -g POWERLEVEL9K_ARCH_TYPE_BACKGROUND=
+
+  ##########################[ username: username for git or system ]###########################
+  # This function gets the git username if you are in a git repository, otherwise it gets the system username
+  function prompt_username() {
+    if [[ -n $(git rev-parse --is-inside-work-tree 2>/dev/null) ]]; then
+      username=$(git config user.name 2>/dev/null)
+    else
+      username=$(whoami)
+    fi
+  }
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
