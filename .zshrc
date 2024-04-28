@@ -24,6 +24,11 @@ export PATH="$PATH:/opt/homebrew/bin"
 # Nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
+# rbenv
+[[ -d ~/.rbenv  ]] && \
+  export PATH=${HOME}/.rbenv/bin:${PATH} && \
+  eval "$(rbenv init -)"
+
 # 重複の削除
 typeset -U PATH
 
@@ -92,6 +97,8 @@ setopt print_eight_bit
 # ビープ音を鳴らさない
 setopt no_beep
 
+# rbenvの初期化
+eval "$(rbenv init -)"
 
 # --------------------
 #       プロンプト

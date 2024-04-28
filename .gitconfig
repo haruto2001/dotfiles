@@ -1,5 +1,17 @@
 [user]
-	name = haruto2001
-	email = tarako5515@gmail.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDkOg+Zc7h/CSmhWM7VTUkL99b06UX/eZ6W+hVaPt7DE
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
+
+[pull]
+	rebase = false
+
 [core]
-	pager = less -F -X
+    pager = less -F -X
